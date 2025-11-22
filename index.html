@@ -201,6 +201,20 @@
         font-size: 1.05rem;
       }
     }
+    .profile-photo {
+          border-radius: 50%;
+          box-shadow: 0 2px 12px rgba(49,130,206,0.10);
+          object-fit: cover;
+          width: 96px;
+          height: 96px;
+          border: 3px solid var(--accent);
+          background: var(--accent);
+          transition: box-shadow 0.2s;
+          display: block;
+        }
+        .profile-photo:hover {
+          box-shadow: 0 4px 24px rgba(49,130,206,0.18);
+        }
   </style>
 </head>
 <body>
@@ -224,20 +238,7 @@
       <p>
         Saya Rafael Siregar, UX Designer dengan latar belakang software engineering. Saya fokus pada pengalaman digital yang berpusat pada pengguna melalui riset, wireframe, dan prototipe interaktif. Kolaborasi erat dengan developer adalah kunci agar desain benar-benar memberikan nilai bagi pengguna.
       </p>
-        .profile-photo {
-          border-radius: 50%;
-          box-shadow: 0 2px 12px rgba(49,130,206,0.10);
-          object-fit: cover;
-          width: 96px;
-          height: 96px;
-          border: 3px solid var(--accent);
-          background: var(--accent);
-          transition: box-shadow 0.2s;
-          display: block;
-        }
-        .profile-photo:hover {
-          box-shadow: 0 4px 24px rgba(49,130,206,0.18);
-        }
+        
     </section>
 
     <section class="skills">
