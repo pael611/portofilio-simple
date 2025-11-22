@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rafael Siregar — UX Designer Portfolio</title>
+  <meta name="description" content="Portfolio singkat Rafael Siregar, UX Designer dari Medan, Indonesia.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3182ce;
+      --bg: #f7f8fa;
+      --card: #fff;
+      --text: #222;
+      --muted: #4a5568;
+      --border: #e2e8f0;
+      --accent: #edf2f7;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+      --radius: 16px;
+      --transition: 0.2s cubic-bezier(.4,0,.2,1);
+    }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      --bg: #18181b;
+      --card: #232326;
+      --text: #f3f4f6;
+      --muted: #a1a1aa;
+      --border: #27272a;
+      --accent: #26272b;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px 24px;
+      transition: background 0.3s;
+    }
+    h1, h2, h3 {
+      color: var(--text);
+      margin-top: 0;
+      letter-spacing: -1px;
+    }
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: -2px;
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .about, .skills, .projects, .process, .contact, .notes {
+      margin-bottom: 32px;
+    }
+    .info {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .info a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .info a:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+    .skills-list, .process-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .skills-list li, .process-list li {
+      background: var(--accent);
+      border-radius: 6px;
+      padding: 7px 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+      cursor: pointer;
+    }
+    .skills-list li:hover, .process-list li:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: scale(1.07);
+    }
+    .project {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow var(--transition), transform var(--transition);
+      border-radius: 10px;
+    }
+    .project:last-child {
+      border-bottom: none;
+    }
+    .project:hover {
+      box-shadow: 0 2px 12px rgba(49,130,206,0.08);
+      transform: translateY(-2px) scale(1.01);
+    }
+    .project-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--primary);
+      letter-spacing: -1px;
+    }
+    .project-meta {
+      font-size: 0.97rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .project-links a {
+      margin-right: 12px;
+      color: var(--primary);
+      font-size: 0.97rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition), border-bottom var(--transition);
+      border-bottom: 1.5px solid transparent;
+      padding-bottom: 2px;
+    }
+    .project-links a:hover {
+      color: #2563eb;
+      border-bottom: 1.5px solid #2563eb;
+    }
+    .notes {
+      font-size: 0.97rem;
+      background: var(--accent);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--muted);
+      box-shadow: 0 1px 4px rgba(49,130,206,0.04);
+    }
+    .contact a {
+      color: var(--primary);
+      text-decoration: none;
+      margin-right: 16px;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .contact a:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+    .dark-toggle {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      background: var(--accent);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(49,130,206,0.07);
+      transition: background var(--transition), box-shadow var(--transition);
+      z-index: 10;
+    }
+    .dark-toggle:hover {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(49,130,206,0.12);
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 16px 6px;
+      }
+      .dark-toggle {
+        top: 12px;
+        right: 12px;
+      }
+    }
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 1.4rem;
+      }
+      h2 {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">
+    <span id="darkIcon">🌙</span>
+  </button>
+  <div class="container">
+    <section class="about">
+      <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQEzoEPoEABEIA/profile-displayphoto-shrink_800_800/B56ZbVZgTKH4Ak-/0/1747336955689?e=1765411200&v=beta&t=-jVAX1fD6I1xaZKi3JS1MgLpVSdvxtLZQ0GIyfDM30k" alt="Rafael Siregar Photo" class="profile-photo" width="96" height="96" loading="lazy">
+        <div>
+          <h1>Rafael Siregar</h1>
+          <div class="info">
+            <strong>UX Designer</strong> &mdash; Medan, Indonesia<br>
+            <a href="mailto:rafaelsiregar611@gmail.com">rafaelsiregar611@gmail.com</a> &bull;
+            <a href="https://linkedin.com/in/rafael-siregar" target="_blank" rel="noopener">LinkedIn</a> &bull;
+            <a href="https://github.com/pael611" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <p>
+        Saya Rafael Siregar, UX Designer dengan latar belakang software engineering. Saya fokus pada pengalaman digital yang berpusat pada pengguna melalui riset, wireframe, dan prototipe interaktif. Kolaborasi erat dengan developer adalah kunci agar desain benar-benar memberikan nilai bagi pengguna.
+      </p>
+        .profile-photo {
+          border-radius: 50%;
+          box-shadow: 0 2px 12px rgba(49,130,206,0.10);
+          object-fit: cover;
+          width: 96px;
+          height: 96px;
+          border: 3px solid var(--accent);
+          background: var(--accent);
+          transition: box-shadow 0.2s;
+          display: block;
+        }
+        .profile-photo:hover {
+          box-shadow: 0 4px 24px rgba(49,130,206,0.18);
+        }
+    </section>
+
+    <section class="skills">
+      <h2>🎯 Skills</h2>
+      <ul class="skills-list">
+        <li>User Research</li>
+        <li>Information Architecture</li>
+        <li>Wireframing & Prototyping (Figma)</li>
+        <li>Usability Testing</li>
+        <li>Design Systems</li>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Agile Collaboration</li>
+      </ul>
+    </section>
+
+    <section class="projects">
+      <h2>🧩 Selected Projects</h2>
+      <div class="project">
+        <div class="project-title">Face Skin Disease Detection — UX & Frontend</div>
+        <div class="project-meta">UX Designer & Frontend Integrator | Jan 2025 – Present</div>
+        <div class="project-meta">Tools: Figma, Flask, TensorFlow, JavaScript</div>
+        <p>
+          Riset pengguna, wireframe, dan prototipe untuk aplikasi deteksi penyakit kulit wajah. Implementasi UI di Flask web app, meningkatkan kejelasan hasil dan mengurangi kebingungan pengguna.
+        </p>
+        <div class="project-links">
+          <a href="https://asistant-kulit-dbs.vercel.app/beranda" target="_blank">Prototype</a>
+          <a href="https://github.com/Ilham593/asistant-kulit" target="_blank">Repository</a>
+          <a href="https://github.com/pael611/skin_prediction-model" target="_blank">Model - Repository</a>  
+        </div>
+      </div>
+      <div class="project">
+        <div class="project-title">E-commerce JUTA</div>
+        <div class="project-meta">UX Researcher & Designer | 2024</div>
+        <div class="project-meta">Tools: Figma, Miro</div>
+        <p>
+            Redesign proses checkout e-commerce JUTA berdasarkan riset pengguna. Fokus pada penyederhanaan alur, pengurangan langkah tak perlu, dan peningkatan kejelasan informasi pembayaran.
+        </p>
+        <div class="project-links">
+          <a href="https://www.figma.com/proto/BLS7Vn5mkkUYebuNIXbZed/MOCKUP-JUTA?node-id=1-3449&p=f&t=LqWHxcuTsy0DiX20-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A3449" target="_blank">Prototype</a>
+        </div>
+      </div>
+      <div class="project">
+        <div class="project-title">Website Berani Lapor  — UX/UI</div>
+        <div class="project-meta">UI/UX Designer | 2023</div>
+        <div class="project-meta">Tools: Figma, Google Sheets</div>
+        <p>
+            Redesign website pengaduan masyarakat Berani Lapor untuk meningkatkan aksesibilitas dan kemudahan penggunaan. Fokus pada navigasi intuitif dan tata letak yang responsif.
+        </p>
+        <div class="project-links">
+          <a href="https://www.figma.com/proto/7k4TITXNoytS2VuUDa2mWk/BeraniLapor?node-id=330-762&t=kGQgPTn41z6TQ79p-1&scaling=scale-down-width&content-scaling=fixed&page-id=25%3A145" target="_blank">Prototype</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <h2>🧪 Research & Process</h2>
+      <ul class="process-list">
+        <li>User Interviews</li>
+        <li>Usability Testing</li>
+        <li>Surveys</li>
+        <li>Competitive Analysis</li>
+        <li>Personas</li>
+        <li>Journey Maps</li>
+        <li>Wireframes</li>
+        <li>Prototypes</li>
+        <li>Usability Reports</li>
+      </ul>
+    </section>
+
+    <section class="notes">
+      <strong>Portfolio Notes:</strong><br>
+      Untuk studi kasus lebih detail, saya dapat membagikan PDF atau Figma file privat yang menunjukkan proses lengkap tiap proyek (riset → wireframe → test → iterasi).
+    </section>
+
+    <section class="contact">
+      <h2>📞 Contact</h2>
+      <a href="mailto:rafaelsiregar611@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/rafael-siregar" target="_blank">LinkedIn</a>
+    </section>
+  </div>
+  <script>
+    // Smooth scroll for anchor links (if you add more sections)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkToggle');
+    const darkIcon = document.getElementById('darkIcon');
+    function setDarkMode(on) {
+      document.body.classList.toggle('dark', on);
+      darkIcon.textContent = on ? '☀️' : '🌙';
+      localStorage.setItem('darkMode', on ? '1' : '0');
+    }
+    darkToggle.addEventListener('click', () => {
+      setDarkMode(!document.body.classList.contains('dark'));
+    });
+    // Load dark mode preference
+    if (localStorage.getItem('darkMode') === '1') setDarkMode(true);
+
+    // Micro-interaction: animate skills on click
+    document.querySelectorAll('.skills-list li').forEach(li => {
+      li.addEventListener('click', () => {
+        li.style.transform = 'scale(1.15)';
+        setTimeout(() => li.style.transform = '', 180);
+      });
+    });
+  </script>
+</body>
+</html>
